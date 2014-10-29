@@ -1,11 +1,10 @@
 package com.huertapp.task;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-
-import com.huertapp.MyGardens;
 
 public class AddCropToGardenTask extends AsyncTask<String, Void, Void> {
 
@@ -39,9 +38,7 @@ public class AddCropToGardenTask extends AsyncTask<String, Void, Void> {
 	@Override
 	protected void onPostExecute(Void result) {
 		dialog.dismiss();
-		context.startActivity(new Intent(context, MyGardens.class));
-		
-	
+		((Activity)context).finish();
 	}
 
 

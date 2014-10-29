@@ -19,6 +19,8 @@ import com.huertapp.adapter.GardenAdapter;
 
 public class MyGardenFragment extends Fragment {
 
+	private ListView mGardens;
+	
 	public static MyGardenFragment newInstance() {
 		MyGardenFragment fragment = new MyGardenFragment();
         return fragment;
@@ -32,12 +34,21 @@ public class MyGardenFragment extends Fragment {
     }
 	
 	@Override
+	public void onResume() {
+		super.onResume();
+		
+		if(mGardens != null){
+			mGardens.setAdapter(new GardenAdapter(getActivity(), FakeDB.getGardens()));
+		}
+	}
+	
+	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_my_garden, container, false);
 
-        ListView gardens = (ListView)view.findViewById(R.id.gardenList);
-		gardens.setAdapter(new GardenAdapter(getActivity(), FakeDB.getGardens()));
-		gardens.setOnItemClickListener(new OnItemClickListener() {
+        mGardens = (ListView)view.findViewById(R.id.gardenList);
+        mGardens.setAdapter(new GardenAdapter(getActivity(), FakeDB.getGardens()));
+        mGardens.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
