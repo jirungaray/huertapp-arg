@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -18,12 +19,12 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.huertapp.adapter.ReminderAdapter;
+import com.huertapp.fragment.HomeFragment;
 import com.huertapp.model.Reminder;
 import com.huertapp.task.GetWeatherTask;
 
 
-public class MainActivity extends ActionBarActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+public class MainActivity extends ActionBarActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -40,19 +41,6 @@ public class MainActivity extends ActionBarActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
        
-        new GetWeatherTask(this).execute("Buenos%20Aires,Argentina");
-        
-        List<Reminder> remindersData = new LinkedList<Reminder>();
-        remindersData.add(new Reminder("Regar Tomates - (Terraza)", "Hoy"));
-        remindersData.add(new Reminder("Regar - Albahaca - (Balcón)", "Dentro de 2 Días"));
-        remindersData.add(new Reminder("Cosechar - Albahaca - (Balcón)", "Dentro de 3 Días"));
-        remindersData.add(new Reminder("Insecticida Tomates- (Balcón)", "Dentro de 5 Días"));
-        remindersData.add(new Reminder("Regar Tomates - (Terraza)", "Dentro de 2 Días"));
-
-        ListView reminders = (ListView) findViewById(R.id.reminderList);
-        reminders.setAdapter(new ReminderAdapter(this, remindersData));
-        
-        
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
@@ -65,20 +53,49 @@ public class MainActivity extends ActionBarActivity
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
+        
+        Fragment f = null;
+        
+        switch (position) {
+		case 0:
+			f = HomeFragment.newInstance();
+			break;
+			
+		case 1:
+			//startActivity(new Intent(MainActivity.this, MyGardens.class));
+			startActivity(new Intent(MainActivity.this, CropDetailActivity.class));
+			break;
+			
+		case 2:
+			startActivity(new Intent(MainActivity.this, RegisterActivity.class));
+			break;
+			
+		case 3:
+			startActivity(new Intent(MainActivity.this, WikiActivity.class));
+			break;
+
+		default:
+			break;
+		}
+        
+        if(f == null){
+        	return;
+        }
+        
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getSupportFragmentManager();
-//        fragmentManager.beginTransaction()
-//                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-//                .commit();
+        fragmentManager.beginTransaction()
+                .replace(R.id.container, f)
+                .commit();
     }
 
     public void onSectionAttached(int number) {
         switch (number) {
             case 1:
-                mTitle = getString(R.string.title_section1);
+                mTitle = getString(R.string.title_section_home);
                 break;
             case 2:
-                mTitle = getString(R.string.title_section2);
+                mTitle = getString(R.string.title_section_my_garden);
                 break;
             case 3:
                 mTitle = getString(R.string.title_section3);
@@ -117,46 +134,6 @@ public class MainActivity extends ActionBarActivity
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            return rootView;
-        }
-
-        @Override
-        public void onAttach(Activity activity) {
-            super.onAttach(activity);
-            ((MainActivity) activity).onSectionAttached(
-                    getArguments().getInt(ARG_SECTION_NUMBER));
-        }
     }
 
 }
