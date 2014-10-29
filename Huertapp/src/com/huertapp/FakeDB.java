@@ -13,7 +13,7 @@ public class FakeDB {
 	public static List<Crop> crops= new LinkedList<Crop>();
 	
 	static{
-		gardens.add(new Garden("Balcón", "Interior, Cantero - 1.5m x 2m"));
+		gardens.add(new Garden("BalcÃ³n", "Interior, Cantero - 1.5m x 2m"));
 		gardens.add(new Garden("Terraza", "Exterior- 4.5m x 6m"));
 		
 		crops.add(new Crop("Tomate", "Hortaliza"));

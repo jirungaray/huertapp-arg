@@ -20,6 +20,7 @@ import android.widget.ListView;
 
 import com.huertapp.adapter.ReminderAdapter;
 import com.huertapp.fragment.HomeFragment;
+import com.huertapp.fragment.MyGardenFragment;
 import com.huertapp.model.Reminder;
 import com.huertapp.task.GetWeatherTask;
 
@@ -62,11 +63,11 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
 			break;
 			
 		case 1:
-			//startActivity(new Intent(MainActivity.this, MyGardens.class));
-			startActivity(new Intent(MainActivity.this, CropDetailActivity.class));
+			f = MyGardenFragment.newInstance();
 			break;
 			
 		case 2:
+			//startActivity(new Intent(MainActivity.this, CropDetailActivity.class));
 			startActivity(new Intent(MainActivity.this, RegisterActivity.class));
 			break;
 			

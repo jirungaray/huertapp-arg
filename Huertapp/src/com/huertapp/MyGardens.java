@@ -22,17 +22,7 @@ public class MyGardens extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_my_gardens);
-		ListView gardens = (ListView) findViewById(R.id.gardenList);
-		gardens.setAdapter(new GardenAdapter(this, FakeDB.getGardens()));
-		gardens.setOnItemClickListener(new OnItemClickListener() {
-
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
-				startActivity(new Intent(MyGardens.this, MyCropsActivity.class));
-				
-			}
-		});
+		
 	}
 
 	@Override

@@ -18,8 +18,7 @@ public class GardenAdapter extends ArrayAdapter<Garden> {
 	public GardenAdapter(Context context,
 			List<Garden> objects) {
 		super(context, -1, objects);
-		inflater = (LayoutInflater) context
-				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 	}
 
