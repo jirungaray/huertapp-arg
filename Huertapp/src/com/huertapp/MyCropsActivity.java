@@ -1,9 +1,12 @@
 package com.huertapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.huertapp.adapter.CropAdapter;
@@ -17,6 +20,12 @@ public class MyCropsActivity extends ActionBarActivity {
 		
 		ListView Crops = (ListView) findViewById(R.id.cropList);
 		Crops.setAdapter(new CropAdapter(this, FakeDB.getCrops()));
+		Crops.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				startActivity(new Intent(MyCropsActivity.this,CropDetailActivity.class));
+			}
+		});
 	}
 
 	@Override
