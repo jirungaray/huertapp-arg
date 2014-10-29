@@ -17,14 +17,14 @@ public class CropDetailActivity extends ActionBarActivity {
 		setContentView(R.layout.activity_crop_detail);
 		
 		ListView actions = (ListView) findViewById(R.id.cropDetailActionList);
-		actions.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, new String[]{"10/10/2014 - Riego","1/10/2014 - Aplicación Insecticida","23/9/2014 - Riego","15/9/2014 - Raleo","10/9/2014 - Riego"}));
+		actions.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, new String[]{"10/10/2014 - Riego","1/10/2014 - AplicaciÃ³n Insecticida","23/9/2014 - Riego","15/9/2014 - Raleo","10/9/2014 - Riego"}));
 	}
 
 	public void openPlagueWiki(View view){
-		startActivity(new Intent(this,WikiActivity.class));
+		//startActivity(new Intent(this,WikiActivity.class));
 	}
 	
 	public void openWiki(View view){
-		startActivity(new Intent(this,WikiActivity.class));
+		//startActivity(new Intent(this,WikiActivity.class));
 	}
 }
