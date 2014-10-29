@@ -21,6 +21,7 @@ import android.widget.ListView;
 import com.huertapp.adapter.ReminderAdapter;
 import com.huertapp.fragment.HomeFragment;
 import com.huertapp.fragment.MyGardenFragment;
+import com.huertapp.fragment.WikiFragment;
 import com.huertapp.model.Reminder;
 import com.huertapp.task.GetWeatherTask;
 
@@ -67,12 +68,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
 			break;
 			
 		case 2:
-			//startActivity(new Intent(MainActivity.this, CropDetailActivity.class));
-			startActivity(new Intent(MainActivity.this, RegisterActivity.class));
-			break;
-			
-		case 3:
-			startActivity(new Intent(MainActivity.this, WikiActivity.class));
+			f = WikiFragment.newInstance();
 			break;
 
 		default:
@@ -99,7 +95,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
                 mTitle = getString(R.string.title_section_my_garden);
                 break;
             case 3:
-                mTitle = getString(R.string.title_section3);
+                mTitle = getString(R.string.title_section_wiki);
                 break;
         }
     }

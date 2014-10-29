@@ -4,7 +4,7 @@
     <string name="app_name">Huertapp</string>
     <string name="title_section_home">Home</string>
     <string name="title_section_my_garden">Mi Jardin</string>
-    <string name="title_section3">Section 3</string>
+    <string name="title_section_wiki">Wiki</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>

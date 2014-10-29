@@ -1,6 +1,6 @@
 package com.huertapp.wiki;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +20,7 @@ public class WikiGardenListFragment extends Fragment {
 		
 			
 			ListView list = (ListView) v.findViewById(R.id.gardenList);
-			list.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, new String[]{"Interna","Externa","Almacígo","Hidropónica","Invernadero","Tierra Libre"}));
+			list.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, new String[]{"Interna","Externa","AlmacÃ¡go","HidropÃ³nica","Invernadero","Tierra Libre"}));
 			return v;
 	}
 }

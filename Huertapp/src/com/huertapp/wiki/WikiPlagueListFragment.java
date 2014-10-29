@@ -1,6 +1,6 @@
 package com.huertapp.wiki;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,14 +20,14 @@ public class WikiPlagueListFragment extends Fragment {
 		 
 			Spinner type = (Spinner) v.findViewById(R.id.plagueTypeSpinner);
 			
-			type.setAdapter(new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_dropdown_item_1line, new String[]{"Todo","PAr·sitos","Hongos","Bacterias","Virus"}));
+			type.setAdapter(new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_dropdown_item_1line, new String[]{"Todo","PAr√°sitos","Hongos","Bacterias","Virus"}));
 			
 			Spinner crops = (Spinner) v.findViewById(R.id.CropSpinner);
 			
 			crops.setAdapter(new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_dropdown_item_1line, new String[]{"Todos los cultivos","Tomate","Lechuga","Albahaca","Batata","Papa","Calabaza","Brocoli","Espinaca","Apio","Acelga","Perejil","Zanahoria","Remolacha","Repollo"}));
 			
 			ListView list = (ListView) v.findViewById(R.id.plagueList);
-			list.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, new String[]{"PulgÛn","Mosca Blanca","AraÒa Roja","Trips","Nematodos","Oidio","Mildiu","Negrilla","Roya","Chancro Bacteriano"}));
+			list.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, new String[]{"Pulg√≥n","Mosca Blanca","Ara√±a Roja","Trips","Nematodos","Oidio","Mildiu","Negrilla","Roya","Chancro Bacteriano"}));
 			return v;
 	}
 }
