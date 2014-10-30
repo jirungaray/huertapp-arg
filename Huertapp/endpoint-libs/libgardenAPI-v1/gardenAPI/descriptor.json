@@ -1,13 +1,13 @@
 {
   "files": [
     {
-      "downloadUrl": "/downloads/gardenAPI/v1/20141030033521/java/1.18.0-rc/huertapp.com-gardenAPI-v1-20141030033521-java-1.18.0-rc-sources.jar", 
-      "path": "huertapp.com-gardenAPI-v1-20141030033521-java-1.18.0-rc-sources.jar", 
+      "downloadUrl": "/downloads/gardenAPI/v1/20141030050611/java/1.18.0-rc/huertapp.com-gardenAPI-v1-20141030050611-java-1.18.0-rc-sources.jar", 
+      "path": "huertapp.com-gardenAPI-v1-20141030050611-java-1.18.0-rc-sources.jar", 
       "type": "source", 
-      "timestamp": "2014-10-30 03:35"
+      "timestamp": "2014-10-30 05:06"
     }, 
     {
-      "path": "huertapp.com-gardenAPI-v1-20141030033521-java-1.18.0-rc.jar.properties", 
+      "path": "huertapp.com-gardenAPI-v1-20141030050611-java-1.18.0-rc.jar.properties", 
       "type": "android.properties"
     }
   ], 
@@ -675,5 +675,5 @@
   "packagePath": "model", 
   "language_version": "1.18.0-rc", 
   "id": "gardenAPI:v1", 
-  "revision": 20141030033521
+  "revision": 20141030050611
 }

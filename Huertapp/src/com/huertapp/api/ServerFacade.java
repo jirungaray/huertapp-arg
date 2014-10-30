@@ -3,17 +3,16 @@ package com.huertapp.api;
 import java.io.IOException;
 import java.util.List;
 
-import android.content.Context;
-
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.json.gson.GsonFactory;
+import com.huertapp.model.cropAPI.CropAPI;
 import com.huertapp.model.gardenAPI.GardenAPI;
 import com.huertapp.model.gardenAPI.model.Garden;
 
 public class ServerFacade {
 
 	static GardenAPI gardenApi = new GardenAPI.Builder( AndroidHttp.newCompatibleTransport(), new GsonFactory(),null).build();
-	
+	static CropAPI cropAPI = new CropAPI.Builder( AndroidHttp.newCompatibleTransport(), new GsonFactory(),null).build();
 	
 	public static List<Garden> listAllGardens(){
 		try {

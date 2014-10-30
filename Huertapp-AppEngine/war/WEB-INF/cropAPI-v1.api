@@ -1,0 +1,209 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://huertapp-arg.appspot.com/_ah/api",
+  "name" : "cropAPI",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://huertapp-arg.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "huertapp.com",
+  "ownerName" : "huertapp.com",
+  "packagePath" : "model",
+  "methods" : {
+    "cropAPI.listCropsForGarden" : {
+      "path" : "crop/{gardenId}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.huertapp.model.CropEndpoint.listCropsForGarden",
+      "request" : {
+        "parameters" : {
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          },
+          "gardenId" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "cropAPI.insertCrop" : {
+      "path" : "crop",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.huertapp.model.CropEndpoint.insertCrop",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "cropAPI.getCropById" : {
+      "path" : "getById",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.huertapp.model.CropEndpoint.getCropById",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "cropAPI.removeCrop" : {
+      "path" : "crop/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.huertapp.model.CropEndpoint.removeCrop",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    },
+    "cropAPI.updateCrop" : {
+      "path" : "crop",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.huertapp.model.CropEndpoint.updateCrop",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "CollectionResponse_Crop" : {
+        "id" : "CollectionResponse_Crop",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Crop"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Crop" : {
+        "id" : "Crop",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "gardenId" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "type" : {
+            "type" : "string"
+          },
+          "variety" : {
+            "type" : "string"
+          },
+          "amount" : {
+            "type" : "integer"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "com.huertapp.model.CropEndpoint.listCropsForGarden" : {
+        "response" : {
+          "$ref" : "CollectionResponse_Crop"
+        }
+      },
+      "com.huertapp.model.CropEndpoint.insertCrop" : {
+        "request" : {
+          "$ref" : "Crop"
+        },
+        "response" : {
+          "$ref" : "Crop"
+        }
+      },
+      "com.huertapp.model.CropEndpoint.getCropById" : {
+        "response" : {
+          "$ref" : "Crop"
+        }
+      },
+      "com.huertapp.model.CropEndpoint.removeCrop" : {
+      },
+      "com.huertapp.model.CropEndpoint.updateCrop" : {
+        "request" : {
+          "$ref" : "Crop"
+        },
+        "response" : {
+          "$ref" : "Crop"
+        }
+      }
+    }
+  }
+}

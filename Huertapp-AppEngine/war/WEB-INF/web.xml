@@ -19,7 +19,7 @@
   <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
   <init-param>
    <param-name>services</param-name>
-   <param-value>com.huertapp.DeviceInfoEndpoint,com.huertapp.MessageEndpoint,com.huertapp.model.GardenEndpoint</param-value>
+   <param-value>com.huertapp.DeviceInfoEndpoint,com.huertapp.MessageEndpoint,com.huertapp.model.CropEndpoint,com.huertapp.model.GardenEndpoint</param-value>
   </init-param>
  </servlet>
  <servlet-mapping>
