@@ -7,7 +7,8 @@ import android.content.Intent;
 import android.os.AsyncTask;
 
 import com.huertapp.FakeDB;
-import com.huertapp.model.Garden;
+import com.huertapp.api.ServerFacade;
+import com.huertapp.model.gardenAPI.model.Garden;
 
 public class SaveGardenTask extends AsyncTask<String, Void, Void> {
 
@@ -28,14 +29,14 @@ public class SaveGardenTask extends AsyncTask<String, Void, Void> {
 
 	@Override
 	protected Void doInBackground(String... params) {
-		try {
-			Thread.sleep(2000);
-			FakeDB.addGarden(new Garden(params[0], params[1]));
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
+			Garden toSave = new Garden();
+			//TODO setear todos los valores
+			toSave.setName(params[0]);
+			toSave.setType(params[1]);
+			toSave.setWidth(Float.parseFloat(params[2]));
+			toSave.setLength(Float.parseFloat(params[3]));
+			ServerFacade.saveGarden(toSave);
+			return null;
 	}
 	
 	@Override

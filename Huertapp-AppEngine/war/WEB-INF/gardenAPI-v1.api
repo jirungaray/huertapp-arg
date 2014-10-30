@@ -1,0 +1,212 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://huertapp-arg.appspot.com/_ah/api",
+  "name" : "gardenAPI",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://huertapp-arg.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "huertapp.com",
+  "ownerName" : "huertapp.com",
+  "packagePath" : "model",
+  "methods" : {
+    "gardenAPI.deleteGarden" : {
+      "path" : "garden/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.huertapp.model.GardenEndpoint.deleteGarden",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    },
+    "gardenAPI.listGardens" : {
+      "path" : "garden",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.huertapp.model.GardenEndpoint.listGardens",
+      "request" : {
+        "parameters" : {
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "gardenAPI.getGarden" : {
+      "path" : "garden/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.huertapp.model.GardenEndpoint.getGarden",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "gardenAPI.updateGarden" : {
+      "path" : "garden",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.huertapp.model.GardenEndpoint.updateGarden",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "gardenAPI.addGarden" : {
+      "path" : "addGarden",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.huertapp.model.GardenEndpoint.addGarden",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "CollectionResponse_Garden" : {
+        "id" : "CollectionResponse_Garden",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Garden"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Garden" : {
+        "id" : "Garden",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "directLight" : {
+            "type" : "boolean"
+          },
+          "lightHoursADay" : {
+            "type" : "integer"
+          },
+          "width" : {
+            "type" : "number",
+            "format" : "float"
+          },
+          "length" : {
+            "type" : "number",
+            "format" : "float"
+          },
+          "outerGarden" : {
+            "type" : "boolean"
+          },
+          "type" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "com.huertapp.model.GardenEndpoint.deleteGarden" : {
+      },
+      "com.huertapp.model.GardenEndpoint.listGardens" : {
+        "response" : {
+          "$ref" : "CollectionResponse_Garden"
+        }
+      },
+      "com.huertapp.model.GardenEndpoint.getGarden" : {
+        "response" : {
+          "$ref" : "Garden"
+        }
+      },
+      "com.huertapp.model.GardenEndpoint.updateGarden" : {
+        "request" : {
+          "$ref" : "Garden"
+        },
+        "response" : {
+          "$ref" : "Garden"
+        }
+      },
+      "com.huertapp.model.GardenEndpoint.addGarden" : {
+        "request" : {
+          "$ref" : "Garden"
+        },
+        "response" : {
+          "$ref" : "Garden"
+        }
+      }
+    }
+  }
+}

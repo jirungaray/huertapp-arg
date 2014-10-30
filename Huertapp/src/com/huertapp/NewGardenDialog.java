@@ -74,7 +74,7 @@ public class NewGardenDialog extends ActionBarActivity {
 		Spinner gardenTypes =  (Spinner) findViewById(R.id.gardenTypeSpinner);
 		EditText width = (EditText) findViewById(R.id.gardenWidthEdit);
 		EditText height = (EditText) findViewById(R.id.gardenHeightEdit);
-		new SaveGardenTask(this).execute(name.getText().toString(),gardenTypes.getSelectedItem().toString()+" - "+ width.getText().toString()+"m x "+height.getText().toString()+"m");
+		new SaveGardenTask(this).execute(name.getText().toString(),gardenTypes.getSelectedItem().toString(), width.getText().toString(),height.getText().toString());
 		
 	}
 }

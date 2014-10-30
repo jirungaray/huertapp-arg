@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.huertapp.model.Garden;
+import com.huertapp.model.gardenAPI.model.Garden;
 
 public class GardenAdapter extends ArrayAdapter<Garden> {
 
@@ -29,11 +29,11 @@ public class GardenAdapter extends ArrayAdapter<Garden> {
 		}
 		Garden current = getItem(position);
 		((TextView)convertView.findViewById(android.R.id.text1)).setText(current.getName());
-		((TextView)convertView.findViewById(android.R.id.text2)).setText(current.getDescription());
+		((TextView)convertView.findViewById(android.R.id.text2)).setText(current.getType()+" - " + current.getWidth()+"m x "+current.getLength()+"m");
 	
 		return convertView;
 	}
-
+ 
 
 	
 

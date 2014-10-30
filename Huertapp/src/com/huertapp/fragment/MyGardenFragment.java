@@ -16,6 +16,7 @@ import com.huertapp.MyCropsActivity;
 import com.huertapp.NewGardenDialog;
 import com.huertapp.R;
 import com.huertapp.adapter.GardenAdapter;
+import com.huertapp.task.ListGardensTask;
 
 public class MyGardenFragment extends Fragment {
 
@@ -38,7 +39,7 @@ public class MyGardenFragment extends Fragment {
 		super.onResume();
 		
 		if(mGardens != null){
-			mGardens.setAdapter(new GardenAdapter(getActivity(), FakeDB.getGardens()));
+			new ListGardensTask(this.getActivity(), mGardens).execute();
 		}
 	}
 	
@@ -47,7 +48,7 @@ public class MyGardenFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_my_garden, container, false);
 
         mGardens = (ListView)view.findViewById(R.id.gardenList);
-        mGardens.setAdapter(new GardenAdapter(getActivity(), FakeDB.getGardens()));
+        new ListGardensTask(this.getActivity(), mGardens).execute();
         mGardens.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
